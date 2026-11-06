@@ -1,0 +1,128 @@
+{
+  "finishedAt": "2026-11-06T09:07:58.691Z",
+  "result": "pass",
+  "steps": [
+    {
+      "name": "空库进入列表页展示空状态",
+      "result": "pass",
+      "detail": "页面显示「暂无员工数据」，无未捕获异常"
+    },
+    {
+      "name": "列表页进入新增员工页",
+      "result": "pass",
+      "detail": "URL=/employees/new，标题「新增员工」"
+    },
+    {
+      "name": "必填项留空提交被前端拦截",
+      "result": "pass",
+      "detail": "4 个必填错误提示可见，POST 请求数=0"
+    },
+    {
+      "name": "非法手机号与邮箱被前端拦截",
+      "result": "pass",
+      "detail": "提示具体原因，POST 请求数=0"
+    },
+    {
+      "name": "后端 400 字段级错误映射到输入项",
+      "result": "pass",
+      "detail": "姓名输入项下显示「后端姓名错误」，页面未跳转"
+    },
+    {
+      "name": "新增合法员工并跳转列表",
+      "result": "pass",
+      "detail": "id=1，列表可见张三，状态=在职；双击提交仅 1 次请求，createdAt=2026-11-06T17:07:39.170102"
+    },
+    {
+      "name": "重复工号返回 409 并在工号字段提示",
+      "result": "pass",
+      "detail": "提示「工号已存在」，页面停留且输入保留"
+    },
+    {
+      "name": "提交时记录已被移除（404）",
+      "result": "pass",
+      "detail": "提示「员工不存在或已被移除」并隐藏表单"
+    },
+    {
+      "name": "保存时网络异常保留输入",
+      "result": "pass",
+      "detail": "显示网络异常提示，姓名字段仍为李四"
+    },
+    {
+      "name": "编辑回显并保存成功",
+      "result": "pass",
+      "detail": "createdAt 保持 2026-11-06T17:07:39.170102，updatedAt=2026-11-06T17:07:41.229036"
+    },
+    {
+      "name": "选填字段为空展示占位符",
+      "result": "pass",
+      "detail": "岗位/手机号/邮箱/入职日期显示「-」，状态默认在职"
+    },
+    {
+      "name": "访问不存在 id 的编辑页",
+      "result": "pass",
+      "detail": "显示「员工不存在或已被移除」，无保存按钮"
+    },
+    {
+      "name": "13 条数据首屏展示 10 条",
+      "result": "pass",
+      "detail": "共 13 条，表格行数=10"
+    },
+    {
+      "name": "切换到第 2 页",
+      "result": "pass",
+      "detail": "行数=3，请求=http://127.0.0.1:5173/api/employees?page=2&pageSize=10"
+    },
+    {
+      "name": "翻页超出范围时回到有效页码",
+      "result": "pass",
+      "detail": "提示后回到第 1 页，展示 10 条数据"
+    },
+    {
+      "name": "切换每页条数为 20",
+      "result": "pass",
+      "detail": "重新请求 pageSize=20，行数=13"
+    },
+    {
+      "name": "后端停止后列表展示错误与重试",
+      "result": "pass",
+      "detail": "错误提示与「重试」按钮可见"
+    },
+    {
+      "name": "后端未恢复时重试仍提示错误",
+      "result": "pass",
+      "detail": "错误提示保持可见"
+    },
+    {
+      "name": "后端恢复后点击重试加载成功",
+      "result": "pass",
+      "detail": "表格重新显示数据"
+    },
+    {
+      "name": "服务重启后数据仍可查询",
+      "result": "pass",
+      "detail": "total=13，列表正常展示"
+    },
+    {
+      "name": "页面无未捕获异常",
+      "result": "pass",
+      "detail": "pageerror 事件数=0"
+    }
+  ],
+  "screenshots": [
+    ".opencode/delivery/screenshots/01-empty-list.png",
+    ".opencode/delivery/screenshots/02-create-required-errors.png",
+    ".opencode/delivery/screenshots/03-create-format-errors.png",
+    ".opencode/delivery/screenshots/04-list-after-create.png",
+    ".opencode/delivery/screenshots/05-duplicate-employee-no.png",
+    ".opencode/delivery/screenshots/06-edit-prefilled.png",
+    ".opencode/delivery/screenshots/06b-edit-submit-404.png",
+    ".opencode/delivery/screenshots/06c-edit-network-error.png",
+    ".opencode/delivery/screenshots/07-list-after-edit.png",
+    ".opencode/delivery/screenshots/08-edit-not-found.png",
+    ".opencode/delivery/screenshots/09-pagination-page1.png",
+    ".opencode/delivery/screenshots/10-out-of-range-page.png",
+    ".opencode/delivery/screenshots/11-backend-down.png",
+    ".opencode/delivery/screenshots/12-backend-restored.png",
+    ".opencode/delivery/screenshots/13-after-restart.png"
+  ]
+}
